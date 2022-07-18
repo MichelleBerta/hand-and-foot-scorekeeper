@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#317EFB">
+  <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <title>Hand and Foot</title>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <img src="/assets/images/hand-and-foot.png" alt="drawing of a hand and a foot" width="90" height="74" class="d-inline-block align-text-center">
+        Hand and Foot
+      </a>
+      <img src="/assets/images/club.png" class="aces" alt="ace of clubs" width="140" height="74">
+      <img src="/assets/images/heart.png" class="aces" alt="ace of hearts" width="140" height="74">
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn modalBtn" data-bs-toggle="modal" data-bs-target="#overviewModal">
+        Game Overview
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="overviewModal" tabindex="-1" aria-labelledby="overviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="overviewModalLabel">Expand each section for more information.</h5>
+            </div>
+            <div class="modal-body">
+              <div class="m-4">
+                <div class="accordion" id="myAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">NEEDED TO PLAY / SET UP</button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <p>
+                          • 1 more deck of cards than the number of players. Example: If 4 players, use 5 decks. <br />
+                          • Jokers are included. <br />
+                          • Deal 13 cards to each player - this is the hand.
+                          <br />
+                          • Deal another 13 cards to each player - this is the foot and is not looked at until the hand has been played.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">MELDS</button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <p>
+                          • Melds are 7 cards of the same value
+                          <br />
+                          • Can put down as few as 3 cards to start a meld.<br />
+                          • Clean meld-all natural. Place a red card on top when complete.
+                          <br />
+                          • Dirty meld-contains wilds --no more than 2, see WILDS for more info. Place a black card on top when complete.
+                          <br />
+                          • Wild meld-all wild (Jokers and 2s)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">WILDS</button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse">
+
+                      <div class="card-body">
+                        <p>
+                          2s and Jokers <br />
+                          To use in melds, must have:
+                          <br />
+                          • 3 natural cards for 1st wild<br />
+                          • 5 natural cards to use 2nd wild
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour">RED AND BLACK 3</button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <h5>Red 3s:</h5>
+                        <p>
+                          If a Red 3 is dealt to you or you draw one on your turn, immediately:
+                          <br />
+                          • Lay face up in front of you to collect points at the end of the game.
+                          <br />• Draw a replacement card from the draw deck.
+                        </p>
+
+                        <h5>Black 3s:</h5>
+                        <p>When discarded, prevents the next player from picking up from the discard pile.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">EACH TURN</button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <p>
+                          • 1st cards laid down must equal 50 points to start game.
+                          <br />
+                          • Draw two cards from deck or seven cards from discard.
+                          <br />
+                          • Lay down melds --minimum three cards to lay down.
+                          <br />• Discard.
+                        </p>
+                        <h5>Drawing from discard:</h5>
+                        <p>
+                          • If less than seven cards available, take all.
+                          <br />• Must play the top card immediately with two natural cards from your hand.
+                        </p>
+
+                        <h5>Getting into your foot:</h5>
+                        <p>You must play all of the cards in your hand before you can get into your foot.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSix">ENDING THE GAME</button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <p>
+                          The game ends when all the cards from the draw pile are gone or a player goes out. <br />
+                          To go out, a player must have:
+                          <br />
+                          • 2 clean melds,
+                          <br />
+                          • 2 dirty melds,
+                          <br />
+                          • 1 wild meld, and
+                          <br />• played all cards from hand and foot.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSeven">SCORING</button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse">
+                      <div class="card-body">
+                        <span>All cards left in your hand or foot at the end of the game are deducted from final score.<table class="responsive-table striped">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Points</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr>
+                                <td>Going Out</td>
+                                <td>100</td>
+                              </tr>
+                              <tr>
+                                <td>Red 3</td>
+                                <td>100</td>
+                              </tr>
+                              <tr>
+                                <td>Wild Melds</td>
+                                <td>1500</td>
+                              </tr>
+                              <tr>
+                                <td>Clean Melds</td>
+                                <td>500</td>
+                              </tr>
+                              <tr>
+                                <td>Dirty Melds</td>
+                                <td>300</td>
+                              </tr>
+                              <tr>
+                                <td>Jokers</td>
+                                <td>50</td>
+                              </tr>
+                              <tr>
+                                <td>2s and Aces</td>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <td>8 - King</td>
+                                <td>10</td>
+                              </tr>
+                              <tr>
+                                <td>4 - 7 and Black 3s</td>
+                                <td>5</td>
+                              </tr>
+                            </tbody>
+                          </table></span>
+                      </div>
+                      </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section>
+    <img src="/assets/images/spades.png" alt="aces of spades" class="decoImages" id="spades">
+    <img src="/assets/images/diamond.png" alt="ace of diamonds" class="decoImages" id="diamonds"> 
+  </section>
+  <div class="wrapper">
+    <div class="form">
+      <div class="total"><input type="text" id="name" placeholder="Name" /> score is: <span id="totalScore">0</span></div>
+    </div>
+    
+    <!--SCORE FORM -->
+    <table>
+      <thead>
+        <th>Cards and Melds in Hand</th>
+        <th>Number</th>
+        <th>Submit</th>
+        <th>Score</th>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td>Going Out Bonus</td>
+          <td id="out"><input type="radio" onchange="check()" value="yes" id="yes">Yes
+            <input type="radio" onchange="check()" value="no" id="no">No
+          </td>
+          <td></td>
+          <!-- <td><input type="button" onClick="check()" Value="Submit" /></td> -->
+          <td><span id="outScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Red 3s</td>
+          <td>
+            <input type="number" name="qty" id="red3Number" placeholder="100 points each" />
+          </td>
+
+          <td><input type="button" onClick="red3MultiplyBy()" Value="Submit" /></td>
+          <td><span id="red3Score"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Wild Melds</td>
+          <td>
+            <input type="number" name="qty" id="wildNumber" placeholder="1500 points each" />
+          </td>
+
+          <td><input type="button" onClick="wildMultiplyBy()" Value="Submit" /></td>
+          <td><span id="wildScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Clean Melds</td>
+          <td>
+            <input type="number" name="qty" id="cleanNumber" placeholder="500 points each" />
+          </td>
+
+          <td><input type="button" onClick="cleanMultiplyBy()" Value="Submit" /></td>
+          <td><span id="cleanScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Dirty Melds</td>
+          <td>
+            <input type="number" name="qty" id="dirtyNumber" placeholder="300 points each" />
+          </td>
+
+          <td><input type="button" onClick="dirtyMultiplyBy()" Value="Submit" /></td>
+          <td><span id="dirtyScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Jokers</td>
+          <td>
+            <input type="number" name="qty" id="jokersNumber" placeholder="50 points each" />
+          </td>
+
+          <td><input type="button" onClick="jokersMultiplyBy()" Value="Submit" /></td>
+          <td><span id="jokersScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Twos and Aces</td>
+          <td>
+            <input type="number" name="qty" id="acesNumber" placeholder="20 points each" />
+          </td>
+
+          <td><input type="button" onClick="acesMultiplyBy()" Value="Submit" /></td>
+          <td><span id="acesScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Eights - Kings</td>
+          <td>
+            <input type="number" name="qty" id="kingNumber" placeholder="10 points each" />
+          </td>
+
+          <td><input type="button" onClick="kingMultiplyBy()" Value="Submit" /></td>
+          <td><span id="kingScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Fours - Sevens</td>
+          <td>
+            <input type="number" name="qty" id="sevenNumber" placeholder="5 points each" />
+          </td>
+
+          <td><input type="button" onClick="sevenMultiplyBy()" Value="Submit" /></td>
+          <td><span id="sevenScore"></span> </td>
+        </tr>
+
+        <tr>
+          <td>Cards in Hand</td>
+          <td>
+            <input type="number" name="qty" id="subtractNumber" placeholder="Subtract Total" />
+          </td>
+
+          <td><input type="button" onClick="subtractBy()" Value="Submit" /></td>
+          <td><span id="subtractScore"></span> </td>
+        </tr>
+        <tr>
+          <td>Submit player's score</td>
+          <td><button type="button" class="btn btn-primary buttons" >Submit Score</button></td>
+          <td> <button type="button" class="btn btn-primary buttons">Add New Player</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary buttons" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
+      Final Scores
+    </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-labelledby="finalScoreModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="finalScoreModalLabel">Final Scores Are:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <canvas id="myChart"></canvas> -->
+  </div>
+
+  <!-- service worker -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("We found your service worker file!", reg);
+        });
+      });
+    }
+  </script>
+
+  <!-- db.js -->
+  <script src="db.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
