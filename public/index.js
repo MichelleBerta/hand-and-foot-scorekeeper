@@ -1,81 +1,77 @@
+const outScore = document.getElementById("outScore");
+const red3Score = document.getElementById("red3Score");
 
-// function check() {
-//   document.getElementById("yes").checked = true;
-// }
+function check() {
+  const yes = document.getElementById("yes");
 
-// if (true.checked){
-//   document.getElementById("outScore").innerHTML = 100;;
-// }else if (false.checked) {
-//   document.getElementById("outScore").innerHTML = 0;
-// }​
+  if (yes.checked) {
+    outScore.innerHTML = 100;
+  } else {
+    outScore.innerHTML = 0;
+  }
+}
 
 function red3MultiplyBy() {
   red3 = document.getElementById("red3Number").value;
   red3Value = 100;
-  document.getElementById("red3Score").innerHTML = red3 * red3Value;
-};
+  red3Score.innerHTML = red3 * red3Value;
+}
 
 function wildMultiplyBy() {
   wild = document.getElementById("wildNumber").value;
   wildValue = 1500;
   document.getElementById("wildScore").innerHTML = wild * wildValue;
-};
+}
 
 function cleanMultiplyBy() {
   clean = document.getElementById("cleanNumber").value;
   cleanValue = 500;
   document.getElementById("cleanScore").innerHTML = clean * cleanValue;
-};
+}
 
 function dirtyMultiplyBy() {
   dirty = document.getElementById("dirtyNumber").value;
   dirtyValue = 300;
   document.getElementById("dirtyScore").innerHTML = dirty * dirtyValue;
-};
+}
 
 function jokersMultiplyBy() {
   jokers = document.getElementById("jokersNumber").value;
   jokersValue = 50;
   document.getElementById("jokersScore").innerHTML = jokers * jokersValue;
-};
+}
 
 function acesMultiplyBy() {
   aces = document.getElementById("acesNumber").value;
   acesValue = 20;
   document.getElementById("acesScore").innerHTML = aces * acesValue;
-};
+}
 
 function kingMultiplyBy() {
   king = document.getElementById("kingNumber").value;
   kingValue = 10;
   document.getElementById("kingScore").innerHTML = king * kingValue;
-};
-
+}
 
 function sevenMultiplyBy() {
   seven = document.getElementById("sevenNumber").value;
   sevenValue = 5;
   document.getElementById("sevenScore").innerHTML = seven * sevenValue;
-};
+}
 
 function subtractBy() {
   subtract = document.getElementById("subtractNumber").value;
   subtractValue = "";
   document.getElementById("subtractScore").innerHTML = -subtract - subtractValue;
-};
+}
 
+function getTotal() {
+  let totalScore = 0;
 
-
-
-
-
-
-
-
-
-
-
-
+  // convert score.innerHTML's to a number instead of a string in order to do math on them
+  totalScore = outScore.innerHTML + red3Score.innerHTML;
+  console.log(totalScore);
+}
 
 // BUDGET
 let transactions = [];

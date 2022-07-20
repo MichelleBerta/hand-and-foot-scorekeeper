@@ -234,13 +234,13 @@
   <!-- Main Section -->
   <section>
     <img src="/assets/images/spades.png" alt="aces of spades" class="decoImages" id="spades">
-    <img src="/assets/images/diamond.png" alt="ace of diamonds" class="decoImages" id="diamonds"> 
+    <img src="/assets/images/diamond.png" alt="ace of diamonds" class="decoImages" id="diamonds">
   </section>
   <div class="wrapper">
     <div class="form">
       <div class="total"><input type="text" id="name" placeholder="Name" /> score is: <span id="totalScore">0</span></div>
     </div>
-    
+
     <!--SCORE FORM -->
     <table>
       <thead>
@@ -252,8 +252,9 @@
       <tbody id="tbody">
         <tr>
           <td>Going Out Bonus</td>
-          <td id="out"><input type="radio" onchange="check()" value="yes" id="yes">Yes
-            <input type="radio" onchange="check()" value="no" id="no">No
+          <td id="out">
+            <input type="radio" name="bonus" onchange="check()" value="yes" id="yes">Yes</input>
+            <input type="radio" name="bonus" onchange="check()" value="no" id="no">No</input>
           </td>
           <td></td>
           <!-- <td><input type="button" onClick="check()" Value="Submit" /></td> -->
@@ -263,7 +264,7 @@
         <tr>
           <td>Red 3s</td>
           <td>
-            <input type="number" name="qty" id="red3Number" placeholder="100 points each" />
+            <input type="number" name="qty" id="red3Number" onchange="red3MultiplyBy()" placeholder="100 points each" />
           </td>
 
           <td><input type="button" onClick="red3MultiplyBy()" Value="Submit" /></td>
@@ -273,7 +274,7 @@
         <tr>
           <td>Wild Melds</td>
           <td>
-            <input type="number" name="qty" id="wildNumber" placeholder="1500 points each" />
+            <input type="number" name="qty" id="wildNumber" onchange="wildMultiplyBy()" placeholder="1500 points each" />
           </td>
 
           <td><input type="button" onClick="wildMultiplyBy()" Value="Submit" /></td>
@@ -283,6 +284,7 @@
         <tr>
           <td>Clean Melds</td>
           <td>
+            <!-- Add onChange function to calculate without the submit button -->
             <input type="number" name="qty" id="cleanNumber" placeholder="500 points each" />
           </td>
 
@@ -351,16 +353,16 @@
         </tr>
         <tr>
           <td>Submit player's score</td>
-          <td><button type="button" class="btn btn-primary buttons" >Submit Score</button></td>
+          <td><button type="button" class="btn btn-primary buttons" onclick="getTotal()">Submit Score</button></td>
           <td> <button type="button" class="btn btn-primary buttons">Add New Player</button></td>
         </tr>
       </tbody>
     </table>
     <div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary buttons" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
-      Final Scores
-    </button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary buttons" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
+        Final Scores
+      </button>
     </div>
 
     <!-- Modal -->
