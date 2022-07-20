@@ -11,7 +11,7 @@ body {
 }
 
 .decoImages {
-  width: 25%;
+  width: 105%;
 }
 
 #spades {
@@ -22,7 +22,7 @@ body {
   transform: rotate(-20deg);
 }
 
-.modalBtn {
+.headerBtn {
   background-color: #fd0303;
   color: white;
   outline: none;
@@ -57,7 +57,7 @@ input {
 }
 
 table {
-  width: 65%;
+  width: 100%;
   background-color: white;
   color: black;
 }
@@ -73,7 +73,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.wrapper {
+.container {
   margin: 0 auto;
   max-width: 95%;
   text-align: center;
@@ -85,7 +85,6 @@ tr:nth-child(even) {
 
 .form {
   margin-top: 25px;
-  width: 75%;
 }
 
 #name {
@@ -125,3 +124,4 @@ box-shadow: none;
 .button.accordian-button::after {
   color:white;
 } */
+

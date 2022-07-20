@@ -15,6 +15,13 @@ const sevenScore = document.getElementById("sevenScore");
 
 const subtractScore = document.getElementById("subtractScore");
 
+
+function moveCursor(field, autoMove) {
+  if (field.value.length >= field.maxLength) {
+    document.getElementById(autoMove).focus();
+  }
+};
+
 function check() {
   const yes = document.getElementById("yes");
 
@@ -23,7 +30,7 @@ function check() {
   } else {
     outScore.innerHTML = 0;
   }
-}
+};
 
 function red3MultiplyBy() {
   red3 = document.getElementById("red3Number").value;
@@ -79,13 +86,22 @@ function subtractBy() {
   document.getElementById("subtractScore").innerHTML = -subtract - subtractValue;
 }
 
-function getTotal() {
-  let totalScore = 0;
 
-  // convert score.innerHTML's to a number instead of a string in order to do math on them
-  totalScore = outScore.innerHTML + red3Score.innerHTML + wildScore.innerHTML + cleanScore.innerHTML + dirtyScore.innerHTML + jokersScore.innerHTML + acesScore.innerHTML + kingScore.innerHTML + sevenScore.innerHTML + subtractScore.innerHTML;
-  console.log(totalScore);
-}
+
+// function getTotal() {
+//   let totalScore = 0;
+//   let outScore = Number;
+//   let red3Score = Number;
+
+//   // convert score.innerHTML's to a number instead of a string in order to do math on them
+//   totalScore = 
+//   outScore.innerHTML + red3Score.innerHTML; 
+//   //+ wildScore.innerHTML + cleanScore.innerHTML + dirtyScore.innerHTML + jokersScore.innerHTML + acesScore.innerHTML + kingScore.innerHTML + sevenScore.innerHTML + subtractScore.innerHTML;
+//   console.log(parseInt(totalScore));
+// }
+
+
+
 
 // BUDGET
 let transactions = [];
