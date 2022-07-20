@@ -1,5 +1,19 @@
 const outScore = document.getElementById("outScore");
 const red3Score = document.getElementById("red3Score");
+const wildScore = document.getElementById("wildScore");
+const cleanScore = document.getElementById("cleanScore");
+
+const dirtyScore = document.getElementById("dirtyScore");
+
+const jokersScore = document.getElementById("jokersScore");
+
+const acesScore = document.getElementById("acesScore");
+
+const kingScore = document.getElementById("kingScore");
+
+const sevenScore = document.getElementById("sevenScore");
+
+const subtractScore = document.getElementById("subtractScore");
 
 function check() {
   const yes = document.getElementById("yes");
@@ -69,7 +83,7 @@ function getTotal() {
   let totalScore = 0;
 
   // convert score.innerHTML's to a number instead of a string in order to do math on them
-  totalScore = outScore.innerHTML + red3Score.innerHTML;
+  totalScore = outScore.innerHTML + red3Score.innerHTML + wildScore.innerHTML + cleanScore.innerHTML + dirtyScore.innerHTML + jokersScore.innerHTML + acesScore.innerHTML + kingScore.innerHTML + sevenScore.innerHTML + subtractScore.innerHTML;
   console.log(totalScore);
 }
 
