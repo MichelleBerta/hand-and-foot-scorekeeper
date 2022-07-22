@@ -1,9 +1,9 @@
 let db;
 
-let budget;
+let game;
 
-// Create a new db request for a "budget" database.
-const request = window.indexedDB.open('budget', 1);
+// Create a new db request for a "game" database.
+const request = window.indexedDB.open("game", 1);
 
 request.onupgradeneeded = function (e) {
   console.log("Upgrade needed in IndexDB");
@@ -16,7 +16,7 @@ request.onupgradeneeded = function (e) {
   db = e.target.result;
 
   if (db.objectStoreNames.length === 0) {
-    db.createObjectStore("budgetStore", { autoIncrement: true });
+    db.createObjectStore("gameStore", { autoIncrement: true });
   }
 };
 
@@ -27,11 +27,11 @@ request.onerror = function (e) {
 function checkDatabase() {
   console.log("check db invoked");
 
-  // Open a transaction on your BudgetStore db
-  let transaction = db.transaction(["budgetStore"], "readwrite");
+  // Open a transaction on your gameStore db
+  let score = db.score(["gameStore"], "readwrite");
 
-  // access your BudgetStore object
-  const store = transaction.objectStore("budgetStore");
+  // access your gameStore object
+  const store = score.objectStore("gameStore");
 
   // Get all records from store and set to a variable
   const getAll = store.getAll();
@@ -40,7 +40,7 @@ function checkDatabase() {
   getAll.onsuccess = function () {
     // If there are items in the store, we need to bulk add them when we are back online
     if (getAll.result.length > 0) {
-      fetch("/api/transaction/bulk", {
+      fetch("/api/score/bulk", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
@@ -52,11 +52,11 @@ function checkDatabase() {
         .then((res) => {
           // If our returned response is not empty
           if (res.length !== 0) {
-            // Open another transaction to BudgetStore with the ability to read and write
-            transaction = db.transaction(["budgetStore"], "readwrite");
+            // Open another score to gameStore with the ability to read and write
+            score = db.score(["gameStore"], "readwrite");
 
             // Assign the current store to a variable
-            const currentStore = transaction.objectStore("budgetStore");
+            const currentStore = score.objectStore("gameStore");
 
             // Clear existing entries because our bulk add was successful
             currentStore.clear();
@@ -80,11 +80,11 @@ request.onsuccess = function (e) {
 
 const saveRecord = (record) => {
   console.log("Save record invoked");
-  // Create a transaction on the BudgetStore db with readwrite access
-  const transaction = db.transaction(["budgetStore"], "readwrite");
+  // Create a score on the gameStore db with readwrite access
+  const score = db.score(["gameStore"], "readwrite");
 
-  // Access your BudgetStore object store
-  const store = transaction.objectStore("budgetStore");
+  // Access your gameStore object store
+  const store = score.objectStore("gameStore");
 
   // Add record to your store with add method.
   store.add(record);

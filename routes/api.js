@@ -1,32 +1,33 @@
 const router = require("express").Router();
-const Transaction = require("../models/transaction.js");
+const Score = require("../models/score.js");
 
-router.post("/api/transaction", ({body}, res) => {
-  Transaction.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+router.post("/api/score", ({ body }, res) => {
+  Score.create(body)
+    .then((dbScore) => {
+      res.json(dbScore);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });
 
-router.post("/api/transaction/bulk", ({body}, res) => {
-  Transaction.insertMany(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+router.post("/api/score/bulk", ({ body }, res) => {
+  Score.insertMany(body)
+    .then((dbScore) => {
+      res.json(dbScore);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });
 
-router.get("/api/transaction", (req, res) => {
-  Transaction.find({}).sort({date: -1})
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+router.get("/api/score", (req, res) => {
+  Score.find({})
+    .sort({ date: -1 })
+    .then((dbScore) => {
+      res.json(dbScore);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(404).json(err);
     });
 });

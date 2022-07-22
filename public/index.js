@@ -15,7 +15,18 @@ const sevenScore = document.getElementById("sevenScore");
 
 const subtractScore = document.getElementById("subtractScore");
 
+/* NAV */
+function gfgMenu() {
+  const GFG = document.querySelector('.links');
+  if (GFG.classList.contains('d-none')) {
+      GFG.classList.remove('d-none');
+  }
+  else {
+      GFG.classList.add('d-none');
+  }
+}
 
+// CALCULATE SCORES
 function moveCursor(field, autoMove) {
   if (field.value.length >= field.maxLength) {
     document.getElementById(autoMove).focus();
@@ -85,6 +96,7 @@ function subtractBy() {
   subtractValue = "";
   document.getElementById("subtractScore").innerHTML = -subtract - subtractValue;
 }
+
 
 
 

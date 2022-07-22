@@ -2,24 +2,21 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const transactionSchema = new Schema(
+const scoreSchema = new Schema(
   {
     name: {
       type: String,
       trim: true,
-      required: "Enter a name for transaction"
+      required: "Enter player's name"
     },
-    value: {
+    finalScore: {
       type: Number,
-      required: "Enter an amount"
+      required: "Player's final score"
     },
-    date: {
-      type: Date,
-      default: Date.now
-    }
+   
   }
 );
 
-const Transaction = mongoose.model("Transaction", transactionSchema);
+const Transaction = mongoose.model("Score", scoreSchema);
 
-module.exports = Transaction;
+module.exports = Score;
