@@ -253,7 +253,7 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-lg-8 col-sm-12">
-        <div class="form total"><input type="text" id="name" placeholder="Name" /> score is: <span id="totalScore" onchange="getTotal()"></span>
+        <div class="form total"><input type="text" id="name" placeholder="Name" /> score is: <span id="totalScore"></span>
         </div>
       </div>
 
@@ -279,9 +279,6 @@
               <td><span class="score" id="outScore"></span> </td>
             </tr>
 
-
-            <p id="totalScore"></p>
-
             <tr>
               <td>Red 3s</td>
               <td>
@@ -295,7 +292,7 @@
               <td>
                 <input type="number" name="qty" id="wildNumber" maxlength="2" onkeyup="wildMultiplyBy(); moveCursor(this, 'cleanNumber')" ; placeholder="1500 points each" />
               </td>
-              <td><span id="wildScore"></span> </td>
+              <td><span class="score" id="wildScore"></span> </td>
             </tr>
 
             <tr>
@@ -303,7 +300,7 @@
               <td>
                 <input type="number" name="qty" id="cleanNumber" maxlength="2" onkeyup="cleanMultiplyBy(); moveCursor(this, 'dirtyNumber')" ; placeholder="500 points each" />
               </td>
-              <td><span id="cleanScore"></span> </td>
+              <td><span class"score" id="cleanScore"></span> </td>
             </tr>
 
             <tr>
@@ -311,7 +308,7 @@
               <td>
                 <input type="number" name="qty" id="dirtyNumber" maxlength="2" onkeyup="dirtyMultiplyBy(); moveCursor(this, 'jokersNumber')" placeholder="300 points each" />
               </td>
-              <td><span id="dirtyScore"></span> </td>
+              <td><span class="score" id="dirtyScore"></span> </td>
             </tr>
 
             <tr>
@@ -319,7 +316,7 @@
               <td>
                 <input type="number" name="qty" id="jokersNumber" maxlength="2" onkeyup="jokersMultiplyBy(); moveCursor(this, 'acesNumber')" placeholder="50 points each" />
               </td>
-              <td><span id="jokersScore"></span> </td>
+              <td><span class="score" id="jokersScore"></span> </td>
             </tr>
 
             <tr>
@@ -327,7 +324,7 @@
               <td>
                 <input type="number" name="qty" id="acesNumber" maxlength="2" onkeyup="acesMultiplyBy(); moveCursor(this, 'kingNumber')" placeholder="20 points each" />
               </td>
-              <td><span id="acesScore"></span> </td>
+              <td><span score="score" id="acesScore"></span> </td>
             </tr>
 
             <tr>
@@ -335,7 +332,7 @@
               <td>
                 <input type="number" name="qty" id="kingNumber" maxlength="2" onkeyup="kingMultiplyBy(); moveCursor(this, 'sevenNumber')" placeholder="10 points each" />
               </td>
-              <td><span id="kingScore"></span> </td>
+              <td><span class="score" id="kingScore"></span> </td>
             </tr>
 
             <tr>
@@ -343,7 +340,7 @@
               <td>
                 <input type="number" name="qty" id="sevenNumber" maxlength="2" onkeyup="sevenMultiplyBy(); moveCursor(this, 'subtractNumber')" placeholder="5 points each" />
               </td>
-              <td><span id="sevenScore"></span> </td>
+              <td><span class="score" id="sevenScore"></span> </td>
             </tr>
 
             <tr>
@@ -351,7 +348,7 @@
               <td>
                 <input type="number" name="qty" id="subtractNumber" maxlength="3" onkeyup="subtractBy(); moveCursor(this, 'submitScore')" placeholder="Subtract Total" />
               </td>
-              <td><span id="subtractScore"></span> </td>
+              <td><span class="score" id="subtractScore"></span> </td>
             </tr>
             <tr>
               <td>Submit player's score</td>

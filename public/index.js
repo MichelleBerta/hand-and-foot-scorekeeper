@@ -15,6 +15,8 @@ const sevenScore = document.getElementById("sevenScore");
 
 const subtractScore = document.getElementById("subtractScore");
 
+const totalScore = document.getElementById("totalScore");
+
 /* NAV */
 function gfgMenu() {
   const GFG = document.querySelector('.links');
@@ -37,96 +39,82 @@ function check() {
   const yes = document.getElementById("yes");
 
   if (yes.checked) {
-    outScore.innerHTML = 100;
+    outScore.textContent = 100;
   } else {
-    outScore.innerHTML = 0;
+    outScore.textContent = 0;
   }
 };
 
 function red3MultiplyBy() {
   red3 = document.getElementById("red3Number").value;
   red3Value = 100;
-  red3Score.innerHTML = red3 * red3Value;
+  red3Score.textContent = red3 * red3Value;
 }
 
 function wildMultiplyBy() {
   wild = document.getElementById("wildNumber").value;
   wildValue = 1500;
-  document.getElementById("wildScore").innerHTML = wild * wildValue;
+  document.getElementById("wildScore").textContent = wild * wildValue;
 }
 
 function cleanMultiplyBy() {
   clean = document.getElementById("cleanNumber").value;
   cleanValue = 500;
-  document.getElementById("cleanScore").innerHTML = clean * cleanValue;
+  document.getElementById("cleanScore").textContent = clean * cleanValue;
 }
 
 function dirtyMultiplyBy() {
   dirty = document.getElementById("dirtyNumber").value;
   dirtyValue = 300;
-  document.getElementById("dirtyScore").innerHTML = dirty * dirtyValue;
+  document.getElementById("dirtyScore").textContent = dirty * dirtyValue;
 }
 
 function jokersMultiplyBy() {
   jokers = document.getElementById("jokersNumber").value;
   jokersValue = 50;
-  document.getElementById("jokersScore").innerHTML = jokers * jokersValue;
+  document.getElementById("jokersScore").textContent = jokers * jokersValue;
 }
 
 function acesMultiplyBy() {
   aces = document.getElementById("acesNumber").value;
   acesValue = 20;
-  document.getElementById("acesScore").innerHTML = aces * acesValue;
+  document.getElementById("acesScore").textContent = aces * acesValue;
 }
 
 function kingMultiplyBy() {
   king = document.getElementById("kingNumber").value;
   kingValue = 10;
-  document.getElementById("kingScore").innerHTML = king * kingValue;
+  document.getElementById("kingScore").textContent = king * kingValue;
 }
 
 function sevenMultiplyBy() {
   seven = document.getElementById("sevenNumber").value;
   sevenValue = 5;
-  document.getElementById("sevenScore").innerHTML = seven * sevenValue;
+  document.getElementById("sevenScore").textContent = seven * sevenValue;
 }
 
 function subtractBy() {
   subtract = document.getElementById("subtractNumber").value;
   subtractValue = "";
-  document.getElementById("subtractScore").innerHTML = -subtract - subtractValue;
+  document.getElementById("subtractScore").textContent = -subtract - subtractValue;
 }
-
-var totalScore = [];
-var newItems = [outScore.innerHTML, red3Score.innerHTML];
-totalScore.push(...newItems);
-console.log(totalScore);
 
 function getTotal() {
-  let totalScore = 0;
-  let outScore = Number;
-  let red3Score = Number;
-document.getElementById("totalScore").innerHTML = (outScore + red3Score);
-  console.log (totalScore);
+const scoreElements = document.getElementsByClassName("score");
+console.log(scoreElements);
 
+const scoreStringArray = Array.from(scoreElements);
+console.log(scoreStringArray); 
 
-  // convert score.innerHTML's to a number instead of a string in order to do math on them
-  totalScore = 
-  outScore.innerHTML + red3Score.innerHTML; 
-  //+ wildScore.innerHTML + cleanScore.innerHTML + dirtyScore.innerHTML + jokersScore.innerHTML + acesScore.innerHTML + kingScore.innerHTML + sevenScore.innerHTML + subtractScore.innerHTML;
-  console.log(parseInt(totalScore));
+const scoreNumberArray = scoreStringArray.map(i =>parseInt(i.textContent) || 0);
+console.log(scoreNumberArray);
+
+const total = scoreNumberArray.reduce((total, i) => total + i)
+console.log("total score = ", total);
+
+totalScore.textContent = total;
 }
 
-
-// function populateTotal() {
-//   // reduce transaction amounts to a single total value
-//   let total = score.reduce((total, t) => {
-//     return total + parseInt(t.value);
-//   }, 0);
-
-//   let totalEl = document.querySelector("#totalScore");
-//   totalEl.textContent = total;
-// }
 
 
 // BUDGET
