@@ -17,23 +17,25 @@ const subtractScore = document.getElementById("subtractScore");
 
 const totalScore = document.getElementById("totalScore");
 
-/* NAV */
+const name = document.getElementById("name");
+
+
+// NAV
 function gfgMenu() {
-  const GFG = document.querySelector('.links');
-  if (GFG.classList.contains('d-none')) {
-      GFG.classList.remove('d-none');
-  }
-  else {
-      GFG.classList.add('d-none');
+  const GFG = document.querySelector(".links");
+  if (GFG.classList.contains("d-none")) {
+    GFG.classList.remove("d-none");
+  } else {
+    GFG.classList.add("d-none");
   }
 }
 
-// CALCULATE SCORES
+// CALCULATE SCORE ELEMENTS
 function moveCursor(field, autoMove) {
   if (field.value.length >= field.maxLength) {
     document.getElementById(autoMove).focus();
   }
-};
+}
 
 function check() {
   const yes = document.getElementById("yes");
@@ -43,7 +45,7 @@ function check() {
   } else {
     outScore.textContent = 0;
   }
-};
+}
 
 function red3MultiplyBy() {
   red3 = document.getElementById("red3Number").value;
@@ -99,27 +101,52 @@ function subtractBy() {
   document.getElementById("subtractScore").textContent = -subtract - subtractValue;
 }
 
+// SUMS EACH SCORE ELEMENT, DISPLAY FINAL SCORE AND SUBMIT TO LOCAL STORAGE WITH SUBMIT BUTTON
 function getTotal() {
-const scoreElements = document.getElementsByClassName("score");
-console.log(scoreElements);
+  const scoreElements = document.getElementsByClassName("score");
+  console.log(scoreElements);
 
-const scoreStringArray = Array.from(scoreElements);
-console.log(scoreStringArray); 
+  const scoreStringArray = Array.from(scoreElements);
+  console.log(scoreStringArray);
 
-const scoreNumberArray = scoreStringArray.map(i =>parseInt(i.textContent) || 0);
-console.log(scoreNumberArray);
+  const scoreNumberArray = scoreStringArray.map((i) => parseInt(i.textContent) || 0);
+  console.log(scoreNumberArray);
 
-const total = scoreNumberArray.reduce((total, i) => total + i)
-console.log("total score = ", total);
+  const total = scoreNumberArray.reduce((total, i) => total + i);
+  console.log("total score = ", total);
 
-totalScore.textContent = total;
+  totalScore.textContent = total;
+
+// SAVE TO LOCAL STORAGE
+  document.querySelector("form").onsubmit = function (e) {
+    e.preventDefault();
+    var name = document.querySelector("#name").value;
+    var totalScore = total;
+    localStorage["name"] = name;
+    localStorage["totalScore"] = totalScore;
+    console.log(localStorage);
+  };
+}
+
+// CLEAR LOCAL STORAGE TO START NEW GAME
+function deleteItems() {
+  localStorage.clear();
+}
+
+// DISPLAY LOCAL STORAGE
+function displayItems() {
+  var l, i;
+  document.getElementById("demo").innerHTML = "";
+  for (i = 0; i < localStorage.length; i++) {
+  x = localStorage.key(i);
+  document.getElementById("demo").innerHTML += x + "<br>";
+  }
 }
 
 
 
 // BUDGET
 // let score = [];
-// // let myChart;
 
 // fetch("/api/score")
 //   .then((response) => {
@@ -131,9 +158,7 @@ totalScore.textContent = total;
 
 //     populateTotal();
 //     populateTable();
-//     // populateChart();
 //   });
-
 
 // function populateTable() {
 //   let tbody = document.querySelector("#modal-body");
@@ -145,50 +170,10 @@ totalScore.textContent = total;
 //     let tr = document.createElement("tr");
 //     tr.innerHTML = `
 //       <td>${score.name}</td>
-//       <td>${score.total}</td> 
+//       <td>${score.total}</td>
 //     `;
 
 //     tbody.appendChild(tr);
-//   });
-// }
-
-// function populateChart() {
-//   // copy array and reverse it
-//   let reversed = score.slice().reverse();
-//   let sum = 0;
-
-//   // create date labels for chart
-//   let labels = reversed.map((t) => {
-//     let date = new Date(t.date);
-//     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-//   });
-
-//   // create incremental values for chart
-//   let data = reversed.map((t) => {
-//     sum += parseInt(t.value);
-//     return sum;
-//   });
-
-//   // remove old chart if it exists
-//   if (myChart) {
-//     myChart.destroy();
-//   }
-
-//   let ctx = document.getElementById("myChart").getContext("2d");
-
-//   myChart = new Chart(ctx, {
-//     type: "line",
-//     data: {
-//       labels,
-//       datasets: [
-//         {
-//           label: "Total Over Time",
-//           fill: true,
-//           backgroundColor: "#6666ff",
-//           data,
-//         },
-//       ],
-//     },
 //   });
 // }
 
@@ -211,18 +196,12 @@ totalScore.textContent = total;
 //     value: amountEl.value,
 //   };
 
-  // if subtracting funds, convert amount to negative number
-  // if (!isAdding) {
-  //   score.value *= -1;
-  // }
+// // add to beginning of current array of data
+// score.unshift(score);
 
-  // // add to beginning of current array of data
-  // score.unshift(score);
-
-  // re-run logic to populate ui with new record
-  // populateChart();
-  // populateTable();
-  // populateTotal();
+// re-run logic to populate ui with new record
+// populateTable();
+// populateTotal();
 
 //   // also send to server
 //   fetch("/api/score", {
@@ -257,8 +236,4 @@ totalScore.textContent = total;
 
 // document.querySelector("#add-btn").onclick = function () {
 //   sendTransaction(true);
-// };
-
-// document.querySelector("#sub-btn").onclick = function () {
-//   sendTransaction(false);
 // };

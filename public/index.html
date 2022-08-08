@@ -36,7 +36,7 @@
         <i class="fa fa-bars"></i>
       </a>
       <img src="/assets/images/club.png" class="aces" alt="ace of clubs" width="140" height="74">
-      <button type="button" class="btn btn headerBtn">Start New Game</button>
+      <button onclick="deleteItems()" type="button" class="btn btn headerBtn" id="newGame">Start New Game</button>
       <img src="/assets/images/heart.png" class="aces" alt="ace of hearts" width="140" height="74">
 
       <!-- Button trigger modal -->
@@ -251,17 +251,8 @@
 
   <!-- Main Section -->
   <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-lg-8 col-sm-12">
-        <div class="form total"><input type="text" id="name" placeholder="Name" /> score is: <span id="totalScore"></span>
-        </div>
-      </div>
-
-    </div>
     <!--SCORE FORM -->
     <div class="row justify-content-md-center">
-
-
       <div class="col-lg-8 col-sm-12">
         <table>
           <thead>
@@ -351,18 +342,23 @@
               <td><span class="score" id="subtractScore"></span> </td>
             </tr>
             <tr>
-              <td>Submit player's score</td>
-              <td><button type="button" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()">Submit Score</button></td>
-              <td> <button type="button" class="btn btn-primary buttons" id="newPlayer">Add New Player</button></td>
+              <form method="post" class="form total">
+                <td><input type="text" id="name" required placeholder="Name" /></td>
+                <td>final score: <span id="totalScore"></span></td>
+                <td><input type="submit" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()" value="Submit Score" /></td>
+              </form>
             </tr>
           </tbody>
         </table>
         <div>
+          <button type="button" class="btn btn-primary buttons" id="newPlayer">Add New Player</button>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary buttons" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
+          <button type="button" class="btn btn-primary buttons" onclick="displayItems()" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
             Final Scores
           </button>
         </div>
+
+
 
         <!-- Modal -->
         <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-labelledby="finalScoreModalLabel" aria-hidden="true">
@@ -374,6 +370,13 @@
               </div>
               <div class="modal-body" id="modal-body">
                 ...
+
+                <!-- Local Storage Test Area -->
+
+                <h2>Display Items</h2>
+
+                <p id="demo"></p>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>

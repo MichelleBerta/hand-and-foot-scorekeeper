@@ -111,7 +111,7 @@ tr:nth-child(even) {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 95%;
   text-align: center;
 }
