@@ -1,26 +1,27 @@
 const outScore = document.getElementById("outScore");
+const outNumber = document.getElementById("outNumber");
 const red3Score = document.getElementById("red3Score");
+const red3Number = document.getElementById("red3Number");
 const wildScore = document.getElementById("wildScore");
+const wildNumber = document.getElementById("wildNumber");
 const cleanScore = document.getElementById("cleanScore");
-
+const cleanNumber = document.getElementById("cleanNumber");
 const dirtyScore = document.getElementById("dirtyScore");
-
+const dirtyNumber = document.getElementById("dirtyNumber");
 const jokersScore = document.getElementById("jokersScore");
-
+const jokerNumber = document.getElementById("jokerNumber");
 const acesScore = document.getElementById("acesScore");
-
+const acesNumber = document.getElementById("acesNumber");
 const kingScore = document.getElementById("kingScore");
-
+const kingNumber = document.getElementById("kingNumber");
 const sevenScore = document.getElementById("sevenScore");
-
+const sevenNumber = document.getElementById("sevenNumber");
 const subtractScore = document.getElementById("subtractScore");
-
+const subtractNumber = document.getElementById("subtractNumber");
 const totalScore = document.getElementById("totalScore");
-
 const name = document.getElementById("name");
-
 const scoreForm = document.getElementsById("scoreForm");
-
+const finalScores = document.getElementById("finalScores");
 
 // NAV
 function gfgMenu() {
@@ -50,57 +51,57 @@ function check() {
 }
 
 function red3MultiplyBy() {
-  red3 = document.getElementById("red3Number").value;
+  red3 = red3Number.value;
   red3Value = 100;
   red3Score.textContent = red3 * red3Value;
 }
 
 function wildMultiplyBy() {
-  wild = document.getElementById("wildNumber").value;
+  wild = wildNumber.value;
   wildValue = 1500;
-  document.getElementById("wildScore").textContent = wild * wildValue;
+  wildScore.textContent = wild * wildValue;
 }
 
 function cleanMultiplyBy() {
-  clean = document.getElementById("cleanNumber").value;
+  clean = cleanNumber.value;
   cleanValue = 500;
-  document.getElementById("cleanScore").textContent = clean * cleanValue;
+  cleanScore.textContent = clean * cleanValue;
 }
 
 function dirtyMultiplyBy() {
-  dirty = document.getElementById("dirtyNumber").value;
+  dirty = dirtyNumber.value;
   dirtyValue = 300;
-  document.getElementById("dirtyScore").textContent = dirty * dirtyValue;
+  dirtyScore.textContent = dirty * dirtyValue;
 }
 
 function jokersMultiplyBy() {
-  jokers = document.getElementById("jokersNumber").value;
+  jokers = jokersNumber.value;
   jokersValue = 50;
-  document.getElementById("jokersScore").textContent = jokers * jokersValue;
+  jokersScore.textContent = jokers * jokersValue;
 }
 
 function acesMultiplyBy() {
-  aces = document.getElementById("acesNumber").value;
+  aces = acesNumber.value;
   acesValue = 20;
-  document.getElementById("acesScore").textContent = aces * acesValue;
+  acesScore.textContent = aces * acesValue;
 }
 
 function kingMultiplyBy() {
-  king = document.getElementById("kingNumber").value;
+  king = kingNumber.value;
   kingValue = 10;
-  document.getElementById("kingScore").textContent = king * kingValue;
+  kingScore.textContent = king * kingValue;
 }
 
 function sevenMultiplyBy() {
-  seven = document.getElementById("sevenNumber").value;
+  seven = sevenNumber.value;
   sevenValue = 5;
-  document.getElementById("sevenScore").textContent = seven * sevenValue;
+  sevenScore.textContent = seven * sevenValue;
 }
 
 function subtractBy() {
-  subtract = document.getElementById("subtractNumber").value;
+  subtract = subtractNumber.value;
   subtractValue = "";
-  document.getElementById("subtractScore").textContent = -subtract - subtractValue;
+  subtractScore.textContent = -subtract - subtractValue;
 }
 
 // SUMS EACH SCORE ELEMENT, DISPLAY FINAL SCORE AND SUBMIT TO LOCAL STORAGE WITH SUBMIT BUTTON
@@ -119,7 +120,7 @@ function getTotal() {
 
   totalScore.textContent = total;
 
-// SAVE TO LOCAL STORAGE
+  // SAVE TO LOCAL STORAGE
   document.querySelector("form").onsubmit = function (e) {
     e.preventDefault();
     var name = document.querySelector("#name").value;
@@ -133,19 +134,18 @@ function getTotal() {
 // FINAL SCORE - DISPLAY LOCAL STORAGE
 function displayItems() {
   var l, i;
-  document.getElementById("demo").innerHTML = "";
+  finalScores.innerHTML = "";
   for (i = 0; i < localStorage.length; i++) {
     x = localStorage.key(i);
-    document.getElementById("demo").innerHTML += x + "<br>";
+    scoreForm.innerHTML += x + "<br>";
   }
 }
- 
+
 // ADD NEW PLAYER - CLEAR FORM
 function clearForm() {
-  document.getElementById("scoreForm").reset();
-// THIS DOES NOT CLEAR THE SCORE, HOWEVER, SCORE WILL CLEAR WHEN NEW INFO ADDED
+  scoreForm.reset();
+  // THIS DOES NOT CLEAR THE SCORE, HOWEVER, SCORE WILL CLEAR WHEN NEW INFO ADDED
 }
-
 
 // CREATE NEW GAME - CLEAR LOCAL STORAGE TO START NEW GAME
 function deleteItems() {
@@ -155,8 +155,6 @@ function deleteItems() {
 // TODO
 // local storage not keeping all records, wiping out each refresh
 // final score - displays local storage, sorted by high score
-
-
 
 // BUDGET
 // let score = [];
