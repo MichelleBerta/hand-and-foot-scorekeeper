@@ -252,152 +252,153 @@
   <!-- Main Section -->
   <div class="container">
     <!--SCORE FORM -->
-    <div class="row justify-content-md-center">
-      <div class="col-lg-8 col-sm-12">
-        <table>
-          <thead>
-            <th>Cards and Melds in Hand</th>
-            <th>Number</th>
-            <th>Score</th>
-          </thead>
-          <tbody id="tbody">
-            <tr>
-              <td>Going Out Bonus</td>
-              <td id="out">
-                <input type="radio" name="bonus" onchange="check(); moveCursor(this, 'red3Number')" value="yes" id="yes">Yes</input>
-                <input type="radio" name="bonus" onchange="check(); moveCursor(this, 'red3Number')" ; value="no" id="no">No</input>
-              </td>
-              <td><span class="score" id="outScore"></span> </td>
-            </tr>
+    <form id="scoreForm">
+      <div class="row justify-content-md-center">
+        <div class="col-lg-8 col-sm-12">
+          <table>
+            <thead>
+              <th>Cards and Melds in Hand</th>
+              <th>Number</th>
+              <th>Score</th>
+            </thead>
+            <tbody id="tbody">
+              <tr>
+                <td>Going Out Bonus</td>
+                <td id="out">
+                  <input type="radio" name="bonus" onchange="check(); moveCursor(this, 'red3Number')" value="yes" id="yes">Yes</input>
+                  <input type="radio" name="bonus" onchange="check(); moveCursor(this, 'red3Number')" ; value="no" id="no">No</input>
+                </td>
+                <td><span class="score" id="outScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Red 3s</td>
-              <td>
-                <input type="number" name="qty" id="red3Number" maxlength="2" onkeyup="red3MultiplyBy(); moveCursor(this, 'wildNumber')" ; placeholder="100 points each" />
-              </td>
-              <td><span class="score" id="red3Score"></span></td>
-            </tr>
+              <tr>
+                <td>Red 3s</td>
+                <td>
+                  <input type="number" name="qty" id="red3Number" maxlength="2" onkeyup="red3MultiplyBy(); moveCursor(this, 'wildNumber')" ; placeholder="100 points each" />
+                </td>
+                <td><span class="score" id="red3Score"></span></td>
+              </tr>
 
-            <tr>
-              <td>Wild Melds</td>
-              <td>
-                <input type="number" name="qty" id="wildNumber" maxlength="2" onkeyup="wildMultiplyBy(); moveCursor(this, 'cleanNumber')" ; placeholder="1500 points each" />
-              </td>
-              <td><span class="score" id="wildScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Wild Melds</td>
+                <td>
+                  <input type="number" name="qty" id="wildNumber" maxlength="2" onkeyup="wildMultiplyBy(); moveCursor(this, 'cleanNumber')" ; placeholder="1500 points each" />
+                </td>
+                <td><span class="score" id="wildScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Clean Melds</td>
-              <td>
-                <input type="number" name="qty" id="cleanNumber" maxlength="2" onkeyup="cleanMultiplyBy(); moveCursor(this, 'dirtyNumber')" ; placeholder="500 points each" />
-              </td>
-              <td><span class"score" id="cleanScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Clean Melds</td>
+                <td>
+                  <input type="number" name="qty" id="cleanNumber" maxlength="2" onkeyup="cleanMultiplyBy(); moveCursor(this, 'dirtyNumber')" ; placeholder="500 points each" />
+                </td>
+                <td><span class"score" id="cleanScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Dirty Melds</td>
-              <td>
-                <input type="number" name="qty" id="dirtyNumber" maxlength="2" onkeyup="dirtyMultiplyBy(); moveCursor(this, 'jokersNumber')" placeholder="300 points each" />
-              </td>
-              <td><span class="score" id="dirtyScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Dirty Melds</td>
+                <td>
+                  <input type="number" name="qty" id="dirtyNumber" maxlength="2" onkeyup="dirtyMultiplyBy(); moveCursor(this, 'jokersNumber')" placeholder="300 points each" />
+                </td>
+                <td><span class="score" id="dirtyScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Jokers</td>
-              <td>
-                <input type="number" name="qty" id="jokersNumber" maxlength="2" onkeyup="jokersMultiplyBy(); moveCursor(this, 'acesNumber')" placeholder="50 points each" />
-              </td>
-              <td><span class="score" id="jokersScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Jokers</td>
+                <td>
+                  <input type="number" name="qty" id="jokersNumber" maxlength="2" onkeyup="jokersMultiplyBy(); moveCursor(this, 'acesNumber')" placeholder="50 points each" />
+                </td>
+                <td><span class="score" id="jokersScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Twos and Aces</td>
-              <td>
-                <input type="number" name="qty" id="acesNumber" maxlength="2" onkeyup="acesMultiplyBy(); moveCursor(this, 'kingNumber')" placeholder="20 points each" />
-              </td>
-              <td><span score="score" id="acesScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Twos and Aces</td>
+                <td>
+                  <input type="number" name="qty" id="acesNumber" maxlength="2" onkeyup="acesMultiplyBy(); moveCursor(this, 'kingNumber')" placeholder="20 points each" />
+                </td>
+                <td><span score="score" id="acesScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Eights - Kings</td>
-              <td>
-                <input type="number" name="qty" id="kingNumber" maxlength="2" onkeyup="kingMultiplyBy(); moveCursor(this, 'sevenNumber')" placeholder="10 points each" />
-              </td>
-              <td><span class="score" id="kingScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Eights - Kings</td>
+                <td>
+                  <input type="number" name="qty" id="kingNumber" maxlength="2" onkeyup="kingMultiplyBy(); moveCursor(this, 'sevenNumber')" placeholder="10 points each" />
+                </td>
+                <td><span class="score" id="kingScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Fours - Sevens</td>
-              <td>
-                <input type="number" name="qty" id="sevenNumber" maxlength="2" onkeyup="sevenMultiplyBy(); moveCursor(this, 'subtractNumber')" placeholder="5 points each" />
-              </td>
-              <td><span class="score" id="sevenScore"></span> </td>
-            </tr>
+              <tr>
+                <td>Fours - Sevens</td>
+                <td>
+                  <input type="number" name="qty" id="sevenNumber" maxlength="2" onkeyup="sevenMultiplyBy(); moveCursor(this, 'subtractNumber')" placeholder="5 points each" />
+                </td>
+                <td><span class="score" id="sevenScore"></span> </td>
+              </tr>
 
-            <tr>
-              <td>Cards in Hand</td>
-              <td>
-                <input type="number" name="qty" id="subtractNumber" maxlength="3" onkeyup="subtractBy(); moveCursor(this, 'submitScore')" placeholder="Subtract Total" />
-              </td>
-              <td><span class="score" id="subtractScore"></span> </td>
-            </tr>
-            <tr>
-              <form method="post" class="form total">
-                <td><input type="text" id="name" required placeholder="Name" /></td>
-                <td>final score: <span id="totalScore"></span></td>
-                <td><input type="submit" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()" value="Submit Score" /></td>
-              </form>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <button type="button" class="btn btn-primary buttons" id="newPlayer">Add New Player</button>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary buttons" onclick="displayItems()" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
-            Final Scores
-          </button>
-        </div>
-
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-labelledby="finalScoreModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="finalScoreModalLabel">Final Scores Are:</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body" id="modal-body">
-                ...
-
-                <!-- Local Storage Test Area -->
-
-                <h2>Display Items</h2>
+              <tr>
+                <td>Cards in Hand</td>
+                <td>
+                  <input type="number" name="qty" id="subtractNumber" maxlength="3" onkeyup="subtractBy(); moveCursor(this, 'submitScore')" placeholder="Subtract Total" />
+                </td>
+                <td><span class="score" id="subtractScore"></span> </td>
+              </tr>
+              <tr>
+                <form method="post" class="formTotal">
+                  <td><input type="text" id="name" required placeholder="Name" /></td>
+                  <td>final score: <span id="totalScore"></span></td>
+                  <td><input type="submit" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()" value="Submit Score" /></td>
+                </form>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <button type="button" class="btn btn-primary buttons" id="newPlayer" onclick="clearForm()">Add New Player</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary buttons" onclick="createItems()" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
+              Final Scores
+            </button>
+          </div>
 
 
-                <table>
-                  <thead>
-                    <th>PLAYER</th>
-                    <th>SCORE</th>
-                  </thead>
-                  <tbody id="demo">
+
+          <!-- Modal -->
+          <div class="modal fade" id="finalScoreModal" tabindex="-1" aria-labelledby="finalScoreModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="finalScoreModalLabel">Final Scores Are:</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body">
+              
+
+                  <!-- Local Storage Test Area -->
+
+
+                  <table>
+                    <thead>
+                      <th>PLAYER</th>
+                      <th>SCORE</th>
+                    </thead>
+                    <tbody id="demo">
                     </tbody>
-                </table>
+                  </table>
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-12">
-        <img src="/assets/images/diamond.png" alt="ace of diamonds" class="decoImages" id="diamonds"><br>
-        <img src="/assets/images/spades.png" alt="aces of spades" class="decoImages" id="spades">
-      </div>
-    </div>
+    </form>
+  </div>
+
+  <div class="col-lg-4 col-sm-12">
+    <img src="/assets/images/diamond.png" alt="ace of diamonds" class="decoImages" id="diamonds"><br>
+    <img src="/assets/images/spades.png" alt="aces of spades" class="decoImages" id="spades">
+  </div>
+  </div>
   </div>
 
 

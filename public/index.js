@@ -19,6 +19,8 @@ const totalScore = document.getElementById("totalScore");
 
 const name = document.getElementById("name");
 
+const scoreForm = document.getElementsById("scoreForm");
+
 
 // NAV
 function gfgMenu() {
@@ -128,28 +130,31 @@ function getTotal() {
   };
 }
 
-// CLEAR LOCAL STORAGE TO START NEW GAME
-function deleteItems() {
-  localStorage.clear();
-}
-
-// DISPLAY LOCAL STORAGE
+// FINAL SCORE - DISPLAY LOCAL STORAGE
 function displayItems() {
   var l, i;
   document.getElementById("demo").innerHTML = "";
   for (i = 0; i < localStorage.length; i++) {
-  x = localStorage.key(i);
-  document.getElementById("demo").innerHTML += x + "<br>";
+    x = localStorage.key(i);
+    document.getElementById("demo").innerHTML += x + "<br>";
   }
-  g = document.createElement('tr');
-g.setAttribute("name", "totalScore");
+}
+ 
+// ADD NEW PLAYER - CLEAR FORM
+function clearForm() {
+  document.getElementById("scoreForm").reset();
+// THIS DOES NOT CLEAR THE SCORE, HOWEVER, SCORE WILL CLEAR WHEN NEW INFO ADDED
 }
 
 
+// CREATE NEW GAME - CLEAR LOCAL STORAGE TO START NEW GAME
+function deleteItems() {
+  localStorage.clear();
+}
+
+// TODO
 // local storage not keeping all records, wiping out each refresh
-// add new player - clear form
-// new game button clear local storage
-// final score displays local storage, sorted by high score
+// final score - displays local storage, sorted by high score
 
 
 
@@ -244,4 +249,4 @@ g.setAttribute("name", "totalScore");
 
 // document.querySelector("#add-btn").onclick = function () {
 //   sendTransaction(true);
-// };
+// }
