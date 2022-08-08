@@ -141,7 +141,15 @@ function displayItems() {
   x = localStorage.key(i);
   document.getElementById("demo").innerHTML += x + "<br>";
   }
+  g = document.createElement('tr');
+g.setAttribute("name", "totalScore");
 }
+
+
+// local storage not keeping all records, wiping out each refresh
+// add new player - clear form
+// new game button clear local storage
+// final score displays local storage, sorted by high score
 
 
 
