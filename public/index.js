@@ -19,9 +19,10 @@ const sevenNumber = document.getElementById("sevenNumber");
 const subtractScore = document.getElementById("subtractScore");
 const subtractNumber = document.getElementById("subtractNumber");
 const totalScore = document.getElementById("totalScore");
-const name = document.getElementById("name");
-const scoreForm = document.getElementsById("scoreForm");
+const playerName = document.getElementById("name");
+const scoreForm = document.getElementById("scoreForm");
 const finalScores = document.getElementById("finalScores");
+const highscores = document.getElementById("highscores");
 
 // NAV
 function gfgMenu() {
@@ -107,43 +108,70 @@ function subtractBy() {
 // SUMS EACH SCORE ELEMENT, DISPLAY FINAL SCORE AND SUBMIT TO LOCAL STORAGE WITH SUBMIT BUTTON
 function getTotal() {
   const scoreElements = document.getElementsByClassName("score");
-  console.log(scoreElements);
 
   const scoreStringArray = Array.from(scoreElements);
-  console.log(scoreStringArray);
 
   const scoreNumberArray = scoreStringArray.map((i) => parseInt(i.textContent) || 0);
-  console.log(scoreNumberArray);
 
   const total = scoreNumberArray.reduce((total, i) => total + i);
-  console.log("total score = ", total);
 
   totalScore.textContent = total;
 
-  // SAVE TO LOCAL STORAGE
-  document.querySelector("form").onsubmit = function (e) {
-    e.preventDefault();
-    var name = document.querySelector("#name").value;
-    var totalScore = total;
-    localStorage["name"] = name;
-    localStorage["totalScore"] = totalScore;
-    console.log(localStorage);
-  };
+  storeGame();
 }
 
-// FINAL SCORE - DISPLAY LOCAL STORAGE
-function displayItems() {
-  var l, i;
-  finalScores.innerHTML = "";
-  for (i = 0; i < localStorage.length; i++) {
-    x = localStorage.key(i);
-    scoreForm.innerHTML += x + "<br>";
+// COPIED FROM CODE QUIZ - Submit button enters initials and score into local storage
+
+function getLocalStorageGames() {
+  let games = [];
+
+  var storedGames = JSON.parse(localStorage.getItem("games"));
+  if (storedGames !== null) {
+    games = storedGames;
   }
+
+  return games;
 }
+
+function storeGame() {
+ games = getLocalStorageGames();
+
+  var game = {
+    name: playerName.value.trim(),
+    score: totalScore.textContent,
+  };
+
+  games.push(game);
+  localStorage.setItem("games", JSON.stringify(games));
+  renderGames();
+  console.log(game);
+}
+
+function renderGames() {
+  games = getLocalStorageGames();
+
+  for (var i = 0; i < games.length; i++) {
+    console.log(games[i]);
+    var highScore = document.createElement("li");
+    highScore.textContent = games[i].name + " " + games[i].score;
+    highscores.append(highScore);
+  }
+
+  //get local storage - games
+  //change text content of highscore
+  console.log(games.length);
+}
+
+// on page load
+function init() {}
 
 // ADD NEW PLAYER - CLEAR FORM
 function clearForm() {
   scoreForm.reset();
+  outScore.textContent = "";
+  red3Score.textContent = "";
+  // Do this ^ for the rest of the score cells (i.e. wildScore, cleanScore etc)
+
   // THIS DOES NOT CLEAR THE SCORE, HOWEVER, SCORE WILL CLEAR WHEN NEW INFO ADDED
 }
 

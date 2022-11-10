@@ -1,0 +1,60 @@
+
+  // SAVE TO LOCAL STORAGE
+  document.querySelector("form").onsubmit = function (e) {
+    e.preventDefault();
+    var name = document.querySelector("#name").value;
+    var totalScore = total;
+    localStorage["name"] = name;
+    localStorage["totalScore"] = totalScore;
+    console.log(localStorage);
+    console.log(totalScore);
+  };
+
+  submit.addEventListener("click", function (event) {
+    event.preventDefault();
+    var game = {
+      name: name.value.trim(),
+      score: totalScore.value,
+    };
+    games.push(game);
+    storeGames();
+    renderGames();
+  });
+}
+
+// THIS IS SOME TESTING FOR LOCAL STORAGE CAN'T GET THE SCORE TO POPULATE
+// let game = {
+//   name: document.querySelector("#name").value,
+//   score: document.querySelector("#totalScore").value
+// };
+
+// let game_serialized = JSON.stringify(game);
+
+// localStorage.setItem("game", game_serialized);
+// console.log(localStorage);
+
+
+// FINAL SCORE - DISPLAY LOCAL STORAGE
+
+function storeGames() {
+  console.log(games);
+  localStorage.setItem("games", JSON.stringify(games));
+}
+
+function renderGames() {
+  for (var i = 0; i < games.length; i++) {
+    // console.log(games[i]);
+    var highScore = document.createElement("li");
+    highscore.textContent = games[i].name + " " + games[i].score;
+    highscores.append(highScore);
+  }
+}
+
+
+// on page load
+function init() {
+  var storeGames = JSON.parse(localStorage.getItem("games"));
+  if (storeGames !== null) {
+    games = storeGames;
+  }
+}
