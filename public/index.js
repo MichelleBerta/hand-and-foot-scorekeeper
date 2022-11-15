@@ -106,7 +106,7 @@ function subtractBy() {
   subtractScore.textContent = -subtract - subtractValue;
 }
 
-// SUMS EACH SCORE ELEMENT, DISPLAY FINAL SCORE AND SUBMIT TO LOCAL STORAGE WITH SUBMIT BUTTON
+// SUMS EACH SCORE ELEMENT, DISPLAY FINAL SCORE, SUBMIT TO LOCAL STORAGE WITH, AND CLEAR FORM FOR NEW PLAYER
 function getTotal() {
   const scoreElements = document.getElementsByClassName("score");
 
@@ -132,11 +132,6 @@ function getTotal() {
   sevenScore.textContent = "";
   subtractScore.textContent = "";
   totalScore.textContent = "";
-  
-  
-  
-  
-  ;
 }
 
 // Submit button enters name and score into local storage

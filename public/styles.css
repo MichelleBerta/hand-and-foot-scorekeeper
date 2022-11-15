@@ -151,6 +151,10 @@ tr:nth-child(even) {
   border-color: #fd0303;
 }
 
+.btn-primary:hover {
+  background-color: black;
+}
+
 .accordion-button:not(.collapsed) {
   background-color: black;
   color: white;
