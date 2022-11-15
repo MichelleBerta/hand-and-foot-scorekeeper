@@ -3,32 +3,36 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Application] (#application)
 - [Technology](#technology)
 - [Screenshots](#screenshots)
 - [Demonstration](#demonstration)
 
 ## Description
 
-This Hand and Foot Score Keeper App is a full stack application designed so the user can player names and the components to calculate the player's score.
-When entering game information offline, the game will populate when brought back online.
+This Hand and Foot Score Keeper contains all of the information someone needs to learn to play Hand and Foot and calculate scores at the end of the game.
 
-### Click this link to view the deployed application (https://secure-hollows-27877.herokuapp.com/)
+The application is designed so the user can enter each player's name, cards played and any cards to be deducted to calculate each player's final score.  The Final Score button will display all the players' names and scores in the current game, sorted sorted from first place to last place.
+
+The Start New Game button clears local storage of previously played games.  
+
+Learn game requirements, set up, how to play and score Hand and Foot with the Game Overview button.
+
+
+## Application
+Click this link to view the application.....(coming soon)
 
 ## Technology
 
 - JavaScript
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose ODM
-- IndexedDB
-- Webmanifest
-- Progressive Web App
+- Local Storage
+- Bootstrap
 
 ## Screenshots
 
-![budgett-tracker](assets/budget-tracker.png)
+![hand-and-foot-scorekeeper](assets/images/handAndFootApp.png)
+![hand-and-foot-scorekeeper](assets/images/HowToPlay.png)
 
 ## Demonstration
 
-![budget-tracker](assets/budget-tracker.gif)
+coming soon
