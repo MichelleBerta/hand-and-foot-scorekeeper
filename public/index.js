@@ -118,7 +118,25 @@ function getTotal() {
 
   totalScore.textContent = total;
 
-  storeGame();
+  storeGame()
+  
+  scoreForm.reset();
+  outScore.textContent = "";
+  red3Score.textContent = "";
+  wildScore.textContent = "";
+  cleanScore.textContent = "";
+  dirtyScore.textContent = "";
+  jokersScore.textContent = "";
+  acesScore.textContent = "";
+  kingScore.textContent = "";
+  sevenScore.textContent = "";
+  subtractScore.textContent = "";
+  totalScore.textContent = "";
+  
+  
+  
+  
+  ;
 }
 
 // Submit button enters name and score into local storage
@@ -177,21 +195,6 @@ function renderGames() {
 // on page load
 function init() {}
 
-// ADD NEW PLAYER - CLEAR FORM
-function clearForm() {
-  scoreForm.reset();
-  outScore.textContent = "";
-  red3Score.textContent = "";
-  wildScore.textContent = "";
-  cleanScore.textContent = "";
-  dirtyScore.textContent = "";
-  jokersScore.textContent = "";
-  acesScore.textContent = "";
-  kingScore.textContent = "";
-  sevenScore.textContent = "";
-  subtractScore.textContent = "";
-  totalScore.textContent = "";
-}
 
 // CREATE NEW GAME - CLEAR LOCAL STORAGE TO START NEW GAME
 function deleteItems() {
