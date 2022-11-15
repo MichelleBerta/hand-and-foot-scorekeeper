@@ -24,6 +24,7 @@ const scoreForm = document.getElementById("scoreForm");
 const finalScores = document.getElementById("finalScores");
 const highscores = document.getElementById("highscores");
 
+
 // NAV
 function gfgMenu() {
   const GFG = document.querySelector(".links");
@@ -120,7 +121,7 @@ function getTotal() {
   storeGame();
 }
 
-// COPIED FROM CODE QUIZ - Submit button enters initials and score into local storage
+// Submit button enters name and score into local storage
 
 function getLocalStorageGames() {
   let games = [];
@@ -134,7 +135,7 @@ function getLocalStorageGames() {
 }
 
 function storeGame() {
- games = getLocalStorageGames();
+  games = getLocalStorageGames();
 
   var game = {
     name: playerName.value.trim(),
@@ -157,10 +158,21 @@ function renderGames() {
     highscores.append(highScore);
   }
 
-  //get local storage - games
-  //change text content of highscore
-  console.log(games.length);
+  
 }
+
+// SORT LIST TEST AREA
+// function SortScore() {
+//   var sortedScore = [];
+//   var items = document.getElementsByTagName("li");
+//   for (var i = 0, l = items.length; i < l; i++) {
+//     sortedScore.push(items[i].innerHTML);
+//   }
+//   sortedScore.sort();
+//   for (var i = 0, l = items.length; i < l; i++) {
+//     items[i].innerHTML = sortedScore[i];
+//   }
+// }
 
 // on page load
 function init() {}
@@ -170,9 +182,15 @@ function clearForm() {
   scoreForm.reset();
   outScore.textContent = "";
   red3Score.textContent = "";
-  // Do this ^ for the rest of the score cells (i.e. wildScore, cleanScore etc)
-
-  // THIS DOES NOT CLEAR THE SCORE, HOWEVER, SCORE WILL CLEAR WHEN NEW INFO ADDED
+  wildScore.textContent = "";
+  cleanScore.textContent = "";
+  dirtyScore.textContent = "";
+  jokersScore.textContent = "";
+  acesScore.textContent = "";
+  kingScore.textContent = "";
+  sevenScore.textContent = "";
+  subtractScore.textContent = "";
+  totalScore.textContent = "";
 }
 
 // CREATE NEW GAME - CLEAR LOCAL STORAGE TO START NEW GAME
@@ -181,7 +199,6 @@ function deleteItems() {
 }
 
 // TODO
-// local storage not keeping all records, wiping out each refresh
 // final score - displays local storage, sorted by high score
 
 // BUDGET

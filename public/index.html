@@ -354,7 +354,7 @@
 
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" data-bs-target="#finalScoreModal">
+            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" onclick="clearForm()" data-bs-target="#finalScoreModal">
               Final Scores
             </button>
           </div>
@@ -367,17 +367,23 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="finalScoreModalLabel">Final Scores Are:</h5>
+
+
+
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
 
 
-                  <!-- Local Storage Test Area -->
 
+                  <!-- Sort List Test Area -->
 
                   <ol id="highscores">
 
                   </ol>
+
+
+
 
                 </div>
                 <div class="modal-footer">

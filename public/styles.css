@@ -157,3 +157,8 @@ tr:nth-child(even) {
   box-shadow: none;
 }
 
+li {
+  display: block;
+  text-align: left;
+  padding: 16px;
+}
