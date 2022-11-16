@@ -152,7 +152,9 @@ tr:nth-child(even) {
 }
 
 .btn-primary:hover {
-  background-color: black;
+  color: black;
+  background-color: white;
+  border-color: black;
 }
 
 .accordion-button:not(.collapsed) {
@@ -169,4 +171,8 @@ li {
   display: block;
   text-align: left;
   padding: 16px;
+}
+
+#column3 {
+  width: 26%;
 }

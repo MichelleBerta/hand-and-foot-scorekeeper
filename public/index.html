@@ -259,7 +259,7 @@
             <thead>
               <th>Cards and Melds</th>
               <th>Number in Hand</th>
-              <th>Score</th>
+              <th id="column3">Score</th>
             </thead>
             <tbody id="tbody">
               <tr>
@@ -343,16 +343,19 @@
                 <td><span class="score" id="subtractScore"></span> </td>
               </tr>
               <tr>
-                <td><input type="text" id="name" required placeholder="Name" /></td>
+                <td></td>
+                <td><input type="text" id="name" required placeholder="Player's Name" /></td>
                 <td>Total: <span id="totalScore"></span></td>
-                <td><input class="btn btn-primary buttons" id="submitScore" value="Submit Score" onclick="getTotal()" /></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
           <div>
 
+            <button type="button" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()">Submit Score</button> </button>
+
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" onclick="clearForm()" data-bs-target="#finalScoreModal">
+            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" onclick="sortTable()"data-bs-target="#finalScoreModal">
               Final Scores
             </button>
           </div>
@@ -365,6 +368,19 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="finalScoreModalLabel">Final Scores:</h5>
+
+                  <table id="myTable">
+                    <tr>
+                      <th>Player's Name (was ID)</th>
+                      <th>Score (was Name)</th>
+                    </tr>
+                  
+                   
+                  </table>
+
+
+
+
 
 
 

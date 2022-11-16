@@ -3,7 +3,6 @@
 ## Table of Contents
 
 - [Description](#description)
-- [Application] (#application)
 - [Technology](#technology)
 - [Screenshots](#screenshots)
 - [Demonstration](#demonstration)
