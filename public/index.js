@@ -156,59 +156,44 @@ function storeGame() {
 
   games.push(game);
   localStorage.setItem("games", JSON.stringify(games));
-  renderGames();
-  console.log(game);
+}
+
+function sortScores(a, b) {
+  if (a.score < b.score) {
+    return 1;
+  }
+  if (a.score > b.score) {
+    return -1;
+  }
+  return 0;
 }
 
 function renderGames() {
   games = getLocalStorageGames();
 
+  console.log(games);
+
+  games.sort(sortScores);
+  console.log(games);
   for (var i = 0; i < games.length; i++) {
-    console.log(games[i]);
-    var highScore = document.createElement("td");
-    highScore.textContent = games[i].name + " " + games[i].score;
-    highscores.append(highScore);
+    var scoreRow = document.createElement("tr");
+    var scoreNameCell = document.createElement("td");
+    var scoreTotalCell = document.createElement("td");
+    scoreNameCell.textContent = games[i].name;
+    scoreTotalCell.textContent = games[i].score;
+    scoreRow.append(scoreNameCell);
+    scoreRow.append(scoreTotalCell);
+    highscores.append(scoreRow);
   }
 }
 
-// NEED TO SORT FINAL SCORES ^ AFTER GETTING THE ELEMENTS CREATED AND POPULATED
-function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("myTable");
-  switching = true;
-  /*Make a loop that will continue until
-  no switching has been done:*/
-  while (switching) {
-    //start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
-    for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
-      shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[0];
-      y = rows[i + 1].getElementsByTagName("TD")[0];
-      //check if the two rows should switch place:
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
+// on page load------CAN I HAVE NEW GAME START ON PAGE LOAD-CLEAR LOCAL STORAGE, AND REMOVE NEW GAME BUTTON?
+function init() {
+  deleteItems()
+  console.log(hello)
 }
 
-// on page load
-function init() {}
+init();
 
 // CREATE NEW GAME - CLEAR LOCAL STORAGE TO START NEW GAME
 function deleteItems() {

@@ -35,14 +35,14 @@
 
         <i class="fa fa-bars"></i>
       </a>
-      <img src="/assets/images/club.png" class="aces" alt="ace of clubs" width="140" height="74">
-      <button onclick="deleteItems()" type="button" class="btn btn headerBtn" id="newGame">Start New Game</button>
-      <img src="/assets/images/heart.png" class="aces" alt="ace of hearts" width="140" height="74">
-
       <!-- Button trigger modal -->
       <button type="button" class="btn btn modalBtn headerBtn" data-bs-toggle="modal" data-bs-target="#overviewModal">
         Game Overview
       </button>
+      <img src="/assets/images/club.png" class="aces" alt="ace of clubs" width="140" height="74">
+      <!-- <button onclick="deleteItems()" type="button" class="btn btn headerBtn" id="newGame">Start New Game</button> -->
+      <img src="/assets/images/heart.png" class="aces" alt="ace of hearts" width="140" height="74">
+
 
       <!-- Overview Modal -->
       <div class="modal fade" id="overviewModal" tabindex="-1" aria-labelledby="overviewModalLabel" aria-hidden="true">
@@ -241,7 +241,7 @@
 
     </nav>
     <div class="links nav flex-column d-none">
-      <button type="button" class="btn btn mobileBtn">Start New Game</button><br>
+      <!-- <button type="button" class="btn btn mobileBtn">Start New Game</button><br> -->
       <button type="button" class="btn btn modalBtn mobileBtn" data-bs-toggle="modal" data-bs-target="#overviewModal">
         Game Overview
       </button>
@@ -355,7 +355,7 @@
             <button type="button" class="btn btn-primary buttons" id="submitScore" onclick="getTotal()">Submit Score</button> </button>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" onclick="sortTable()"data-bs-target="#finalScoreModal">
+            <button type="button" class="btn btn-primary buttons" id="submit" data-bs-toggle="modal" onclick="renderGames()" data-bs-target="#finalScoreModal">
               Final Scores
             </button>
           </div>
@@ -369,36 +369,19 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="finalScoreModalLabel">Final Scores:</h5>
 
-                  <table id="myTable">
-                    <tr>
-                      <th>Player's Name (was ID)</th>
-                      <th>Score (was Name)</th>
-                    </tr>
-                  
-                   
-                  </table>
-
-
-
-
-
-
-
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
 
 
-
                   <!-- Sort List Test Area -->
+                  <table id="myTable">
+                    <thead>
+                      <th>Player's Name (was ID)</th>
+                      <th>Score (was Name)</th>
+                    </thead>
+                    <tbody id="highscores"></tbody>
 
-                  <ol id="highscores">
-
-                  </ol>
-
-
-
-
+                  </table>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn modalBtn" data-bs-dismiss="modal">Close</button>
@@ -431,7 +414,7 @@
   </script>
 
   <!-- db.js -->
-  <script src="db.js"></script>
+  <!-- <script src="db.js"></script> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 

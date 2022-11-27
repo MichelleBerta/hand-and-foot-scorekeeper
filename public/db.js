@@ -27,6 +27,8 @@ request.onerror = function (e) {
 function checkDatabase() {
   console.log("check db invoked");
 
+  console.log(db);
+
   // Open a score on your gameStore db
   let score = db.score(["gameStore"], "readwrite");
 

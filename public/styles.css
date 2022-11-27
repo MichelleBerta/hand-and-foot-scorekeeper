@@ -52,6 +52,11 @@ body {
   max-width: fit-content;
 }
 
+.headerBtn,
+.mobileBtn:focus {
+  box-shadow: none;
+}
+
 .decoImages {
   width: 105%;
 }
@@ -155,6 +160,22 @@ tr:nth-child(even) {
   color: black;
   background-color: white;
   border-color: black;
+}
+
+.btn-primary:focus {
+  color: white;
+  background-color: black;
+  border-color: black;
+  box-shadow: none;
+}
+
+.modalBtn {
+  background-color: #fd0303;
+  color: white;
+}
+
+.modalBtn:focus {
+  box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
