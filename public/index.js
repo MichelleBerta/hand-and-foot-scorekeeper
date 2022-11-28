@@ -187,10 +187,9 @@ function renderGames() {
   }
 }
 
-// on page load------CAN I HAVE NEW GAME START ON PAGE LOAD-CLEAR LOCAL STORAGE, AND REMOVE NEW GAME BUTTON?
+// ON PAGE LOAD-CLEAR LOCAL STORAGE, AND REMOVE NEW GAME BUTTON
 function init() {
   deleteItems()
-  console.log(hello)
 }
 
 init();
@@ -201,7 +200,7 @@ function deleteItems() {
 }
 
 // TODO
-// final score - displays local storage, sorted by high score
+// sorted by high score, need to be able to return to player's score to make changes
 
 // BUDGET
 // let score = [];
